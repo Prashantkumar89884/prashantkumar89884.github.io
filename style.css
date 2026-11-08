@@ -483,27 +483,189 @@ section:not(.hero) {
     font-size: 13px;
 }
 
-/* ================= EDUCATION ================= */
+/* ================= EDUCATION SECTION ================= */
 
-.edu-card {
-    max-width: 650px;
-    margin: auto;
-    padding: 35px;
-    background: var(--card);
-    border-left: 4px solid var(--blue);
-    border-radius: 12px;
-    transition: .3s;
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(260px, 1fr)
+    );
+    gap: 25px;
+    margin-top: 20px;
 }
 
-.edu-card:hover {
-    transform: translateX(8px);
+/* EDUCATION CARD */
+
+.education-card {
+    position: relative;
+    padding: 30px;
+    background: linear-gradient(
+        145deg,
+        #151e35,
+        #0d1425
+    );
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+
+    overflow: hidden;
+    transition: all .4s ease;
 }
 
-.edu-card p {
-    color: var(--muted);
-    margin-top: 12px;
+/* TOP GLOW LINE */
+
+.education-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        #6c63ff,
+        #00d4ff
+    );
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: .4s;
+}
+
+.education-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* HOVER EFFECT */
+
+.education-card:hover {
+    transform: translateY(-10px);
+    border-color: #6c63ff;
+
+    box-shadow:
+        0 15px 35px rgba(108,99,255,.18),
+        0 0 20px rgba(0,212,255,.08);
+}
+
+/* EDUCATION ICON */
+
+.education-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: rgba(108,99,255,.15);
+    border: 1px solid rgba(108,99,255,.3);
+
+    color: #00d4ff;
+    font-size: 25px;
+
+    margin-bottom: 22px;
+
+    transition: .4s;
+}
+
+.education-card:hover .education-icon {
+    transform: rotate(8deg) scale(1.1);
+    background: rgba(0,212,255,.15);
+    box-shadow: 0 0 20px #00d4ff33;
+}
+
+/* YEAR BADGE */
+
+.education-year {
+    display: inline-block;
+
+    color: #67e8f9;
+    background: rgba(0,212,255,.1);
+
+    border: 1px solid rgba(0,212,255,.2);
+
+    padding: 7px 12px;
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    margin-bottom: 18px;
+}
+
+.education-year.current {
+    color: #a5b4fc;
+    background: rgba(108,99,255,.15);
+    border-color: rgba(108,99,255,.3);
+}
+
+/* EDUCATION TITLE */
+
+.education-card h3 {
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.5;
+
+    margin-bottom: 10px;
+}
+
+.education-card h4 {
+    color: #a5b4fc;
     font-size: 13px;
+    font-weight: 600;
+
+    margin-bottom: 20px;
 }
+
+/* RESULT */
+
+.education-result {
+    color: #00d4ff;
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+.education-result i {
+    margin-right: 7px;
+}
+
+/* SCHOOL / COLLEGE NAME */
+
+.education-place {
+    color: #b8c3d9;
+    font-size: 12px;
+    line-height: 1.8;
+
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 15px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 600px) {
+
+    .education-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .education-card {
+        padding: 25px;
+    }
+
+    .education-card h3 {
+        font-size: 18px;
+    }
+
+}
+
 
 /* ================= CONTACT ================= */
 
